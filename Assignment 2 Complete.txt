@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<body>
+    
+<h1 style="text-align:left">Match Word</h1>
+    <tr>
+    <br><br>
+  </tr> 
+    <style>
+    body {background-color:deepskyblue;} 
+    h1{
+        margin: 20px 400px;
+         border: #98ddd7;
+        
+    }
+
+        input[type=button] {
+  background-color: #4CAF50;
+  border: 2px solid #dddddd;
+  color: black;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 20px 450px;
+    cursor: pointer;}
+    
+    input[type=text]:focus {
+  background-color: lightblue;
+}
+
+    .contain{ width:25%; float: initial; 
+    background-color: #4CAFF0;
+  border: 2px solid #dddddd;
+  color: black;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: -4px 330px;}
+
+            
+}
+</style>
+<div class = "contain">
+    <form>
+       
+       <label for="Senetense">Enter Sentense:</label>  
+<input type="text" id="sentense" name="sentense" required  ><br><br>
+       <label for="Letter">Enter Letter:</label>  
+<input type="text" id="Letter" name="Letter" required><br><br>
+    <br />
+    </form>
+</div>
+<input type="button" value="Submit" onClick="test()" id="add" required > 
+
+<!-- add this line for function to write into -->
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+
+<script type="text/javascript">
+function test(){
+    var userInput = document.getElementById("sentense").value;
+    document.getElementById("demo").innerHTML = userInput;
+    var userInpu = document.getElementById("Letter").value;
+    document.getElementById("demo1").innerHTML = userInpu;
+    
+    var A = userInput.match(userInput.indexOf(userInpu) + userInpu.length);   
+    var Z = userInput.replace(new RegExp('.*' + userInpu), '');
+    document.getElementById("demo2").innerHTML = Z;
+   
+    if(userInput.match(userInpu)){
+           alert("matches");
+        document.writeln("Sentense = " +userInput +"<br><br>" ); 
+        document.writeln("Letter = " +userInpu +"<br><br>") ;
+        document.writeln("Req Result = " +Z);
+
+       }
+    else{
+        alert("does not match");
+        document.writeln("Sentense = " +userInput +"<br><br>" ); 
+        document.writeln("Letter = " +userInpu +"<br><br>") ;
+        document.writeln("The letter does not exist in the sentence");
+          
+       }
+    
+    }
+
+
+</script>
+</body>
+</html>

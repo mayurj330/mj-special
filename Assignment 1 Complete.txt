@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 50%;
+                margin-left: 50px
+            }
+            tbody {
+                counter-reset: rowNumber;
+            }
+            table tr {
+                counter-increment: rowNumber;
+            }
+            table tr td:first-child::before {
+                content: counter(rowNumber);
+                min-width: 1em;
+                margin-right: 0.5em;
+            }
+            body {background-color:deepskyblue;} 
+            div {
+                width: 400px;
+                padding: 10px;
+                border: 5px solid gray;
+                margin: 50px;
+            }
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: center;
+                padding: 8px;
+            }
+            input[type=text] {
+                width:50%;
+                padding: 6px 10px;
+                margin: 4px 0;
+                box-sizing: border-box;
+            }
+            input[type=button] {
+                background-color: #4CAF50;
+                border: 2px solid #dddddd;
+                color: black;
+                padding: 16px 32px;
+                text-decoration: none;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            .container {
+                height: 55px;
+                position: relative;
+                border: 3px solid grey;
+            }
+            .floatLeft { width:25%; float: left; 
+                background-color: #4CAF50;
+                border: 2px solid #dddddd;
+                color: black;
+                padding: 16px 32px;
+                text-decoration: none;
+                margin: 10px 50px;
+                cursor: pointer;}
+            .floatRight {width: 20%; float: left; 
+                width:20%;
+                padding: 6px 10px;
+                margin: 30px 250px ;
+                box-sizing: border-box;}
+            input[type=text]:focus {
+                background-color: lightblue;
+            }
+            {
+                background-color: #dddddd;
+            }
+</style>
+        <h1 style="text-align:center">HTML Table</h1>
+        <table id="table" border="5">
+            <thead id="table-head">
+                <tr>	
+                    <th>Sr.No</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>City</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td></td>
+                    <td>Mayur</td>
+                    <td>Jadhav</td>
+                    <td>Aurangabad</td>
+                    <td>India</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Mayur</td>
+                    <td>Jadhav</td>
+                    <td>Aurangabad</td>
+                    <td>India</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Vinayak</td>
+                    <td>Bharekar</td>
+                    <td>Aurangabad</td>
+                    <td>India</td>
+                </tr>
+                <tr>
+
+                    <td></td>
+                    <td>Ankit</td>
+                    <td>Sharma</td>
+                    <td>Pune</td>
+                    <td>India</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Mohit</td>
+                    <td>Joshi</td>
+                    <td>Banglore</td>
+                    <td>India</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="floatLeft">
+            <form action="/action_page.php">
+                <label for="First Name">First Name:</label>  
+                <input type="text" name="First Name" id="First Name" required><br><br>
+                <label for="Last Name">Last Name:</label>  
+                <input type="text" name="Last Name" id="Last Name" required><br><br>
+                <label for="City">City:   </label>  
+                <input type="text" name="price" id="City" required><br><br>    
+                <label for="Country">Country:  </label>  
+                <input type="text" name="item" id="Country" required><br><br>
+            </form>
+        </div>
+        <div class="floatRight">    
+            <input type="button" value="Add Bottom Row" id="add" onClick="addRow()" required>
+            <input type="button" value="Add Top Row" onClick="insRow()" id="add1" required> 
+        </div>
+        <script>
+            function addRow() {
+                "use strict";
+                var tableBody = document.getElementById("table-body");
+                var td1 = document.createElement("td");
+                var td2 = document.createElement("td");
+                var td3 = document.createElement("td");
+                var td4 = document.createElement("td");    
+                var td5 = document.createElement("td");    
+                var row = document.createElement("tr");
+                
+                td2.innerHTML  = document.getElementById("First Name").value;
+                td3.innerHTML  = document.getElementById("Last Name").value;
+                td4.innerHTML  = document.getElementById("City").value;
+                td5.innerHTML  = document.getElementById("Country").value;
+                
+                row.appendChild(td1);
+                row.appendChild(td2);
+                row.appendChild(td3);
+                row.appendChild(td4);
+                row.appendChild(td5);    
+                
+                tableBody.appendChild(row);
+                var tbody = document.createElement('table-body');
+                tbody.id = data.id;
+            }
+            function insRow()
+            {
+                var row=document.getElementById("table-body").insertRow(0);
+                var c1=row.insertCell(0);
+                var c2=row.insertCell(1);
+                var c3=row.insertCell(2);
+                var c4=row.insertCell(3);
+                var c5=row.insertCell(4);
+               
+                c2.innerHTML=document.getElementById("First Name").value;
+                c3.innerHTML=document.getElementById("Last Name").value;;
+                c4.innerHTML=document.getElementById("City").value;
+                c5.innerHTML=document.getElementById("Country").value;
+                
+                row.appendChild(c1);
+                row.appendChild(c2);
+                row.appendChild(c3);
+                row.appendChild(c4);
+                row.appendChild(c5);
+            }
+        </script>
+        </html>
